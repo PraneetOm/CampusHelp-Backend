@@ -1,4 +1,3 @@
-
 package com.smartcampushelpdesk.helpdesk_api.dto;
 
 import jakarta.validation.constraints.Min;
@@ -10,20 +9,16 @@ import java.util.UUID;
 
 public record BookingRequest(
 
-        @NotNull UUID collegeId,
+    @NotNull UUID resourceId,
 
-        @NotNull UUID resourceId,
+    @NotBlank String purpose,
 
-        @NotNull UUID bookedBy,
+    @NotNull
+    @Min(1)
+    Integer attendeeCount,
 
-        @NotBlank String purpose,
+    @NotNull LocalDateTime startTime,
 
-        @NotNull
-        @Min(1)
-        Integer attendeeCount,
-
-        @NotNull LocalDateTime startTime,
-
-        @NotNull LocalDateTime endTime
+    @NotNull LocalDateTime endTime
 
 ) {}
